@@ -43,7 +43,7 @@ int writeHeader(std::string fName) {
 		GCodeFile << ";Author: Karl Krisian Markman, Grenland Energy" << std::endl;
 		GCodeFile << " " << std::endl;
 		GCodeFile << "G28 ; Home" << std::endl;
-		GCodeFile << ";This file is set up to dwell before and after every spotweld. This dwell is set to P20" << std::endl;
+		GCodeFile << ";This file is set up to dwell before and after every spotweld. " << std::endl;
 		GCodeFile << "" << std::endl;
 		GCodeFile.close();
 
@@ -100,7 +100,6 @@ int generateGCode(std::string fName, float_t calcYdist, int cPerRow, int cRow, f
 						Xpos += cellCC;
 						writeToFile(fName, Xpos, Ypos);
 						offSet = false;
-						//std::cout << "Fra venstre, offset: " << Xpos << std::endl;
 					}
 				}
 				else {
@@ -110,8 +109,6 @@ int generateGCode(std::string fName, float_t calcYdist, int cPerRow, int cRow, f
 						if (!square) {
 							offSet = true;
 						}
-						//	std::cout << "Fra venstre: " << Xpos << std::endl;
-
 					}
 				}
 			}
@@ -121,7 +118,6 @@ int generateGCode(std::string fName, float_t calcYdist, int cPerRow, int cRow, f
 						Xpos = Xpos - cellCC;
 						writeToFile(fName, Xpos, Ypos);
 							offSet = false;
-						//	std::cout << "fra høyre, offset: "<<  Xpos << std::endl;
 					}
 				}
 				else {
@@ -131,18 +127,14 @@ int generateGCode(std::string fName, float_t calcYdist, int cPerRow, int cRow, f
 						if (!square) {
 							offSet = true;
 						}
-						//	std::cout << "fra høyre: " << Xpos << std::endl;
 					}
 				}
 			}
 			if (left) {
 				if (offSet) {
 					Xpos = Xpos - (cellCC / 2);
-					//std::cout <<"Xpos start return offset fra H: " << Xpos << std::endl;
 				}
 				else {
-				//	Xpos = initX;
-				//std::cout << "Xpos start return fra H: " << Xpos << std::endl;
 				}
 
 				left = false;
@@ -150,17 +142,13 @@ int generateGCode(std::string fName, float_t calcYdist, int cPerRow, int cRow, f
 			else {
 				if (offSet) {
 					Xpos = initX + (cellCC / 2);
-					//std::cout << "Xpos start return offset fra V: " << Xpos << std::endl;
-
 				}
 				else {
 					Xpos = initX;
-					//	std::cout << "Xpos start return fra V: " << Xpos << std::endl;
 				}
 
 				left = true;
 			}
-			//	std::cout << "Ypos: " << Ypos << std::endl;
 			if (!square) {
 				Ypos += calcYdist;
 				writeToFile(fName, Xpos, Ypos);
@@ -206,29 +194,9 @@ System::Void GREweld::MyForm::btnGenerate_Click(System::Object ^ sender, System:
 		else {
 			square = false;
 		}
-		//
-		////	Stream^ myStream;
-		//savefiledialog^ savefiledialog1 = gcnew savefiledialog;
-		//savefiledialog1->filter = "txt files (*.txt)|*.txt|all files (*.*)|*.*";
-		//savefiledialog1->filterindex = 2;
-		//savefiledialog1->restoredirectory = true;
-		//std::string fname = (const char*)(marshal::stringtohglobalansi(savefiledialog1->filename)).topointer();
-		//if (savefiledialog1->showdialog() == ::dialogresult::ok)
-		//{
-		//	if (savefiledialog1->filename != "")
-		//	{
 				generateGCode( fName, calcYdist, cPerRow, cRow, cellCC, initXPos, initYPos, square);
-				// Code to write the stream goes here.
-				//myStream->Close();
-	/*		}
-		}*/
-
-			//generateGCode(fName, calcYdist, cPerRow, cRow, cellCC, initXPos, initYPos);
-	}
+		}
 	else {
 		MessageBox::Show("Missing values ", "Notification", MessageBoxButtons::OKCancel, MessageBoxIcon::Asterisk);
 	}
-
-
-	//return System::Void();
 }
