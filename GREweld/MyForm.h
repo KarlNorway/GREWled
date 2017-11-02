@@ -53,6 +53,8 @@ namespace GREweld {
 	public: System::Windows::Forms::RadioButton^  rbtnSquare;
 	public: System::Windows::Forms::TextBox^  txtFname;
 	private: System::Windows::Forms::Label^  lblfName;
+	private: System::Windows::Forms::Label^  label5;
+	private: System::Windows::Forms::Label^  label6;
 	public:
 
 	private:
@@ -85,11 +87,13 @@ namespace GREweld {
 			this->rbtnSquare = (gcnew System::Windows::Forms::RadioButton());
 			this->txtFname = (gcnew System::Windows::Forms::TextBox());
 			this->lblfName = (gcnew System::Windows::Forms::Label());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// btnGenerate
 			// 
-			this->btnGenerate->Location = System::Drawing::Point(63, 278);
+			this->btnGenerate->Location = System::Drawing::Point(63, 307);
 			this->btnGenerate->Name = L"btnGenerate";
 			this->btnGenerate->Size = System::Drawing::Size(303, 70);
 			this->btnGenerate->TabIndex = 0;
@@ -153,22 +157,22 @@ namespace GREweld {
 			this->label2->AutoSize = true;
 			this->label2->Location = System::Drawing::Point(60, 197);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(98, 13);
+			this->label2->Size = System::Drawing::Size(123, 13);
 			this->label2->TabIndex = 12;
-			this->label2->Text = L"First cell offset X dir";
+			this->label2->Text = L"First cell offset X dir (mm)";
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(60, 236);
+			this->label3->Location = System::Drawing::Point(60, 252);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(98, 13);
+			this->label3->Size = System::Drawing::Size(123, 13);
 			this->label3->TabIndex = 13;
-			this->label3->Text = L"First cell offset Y dir";
+			this->label3->Text = L"First cell offset Y dir (mm)";
 			// 
 			// txtInitX
 			// 
-			this->txtInitX->Location = System::Drawing::Point(63, 213);
+			this->txtInitX->Location = System::Drawing::Point(63, 229);
 			this->txtInitX->Name = L"txtInitX";
 			this->txtInitX->Size = System::Drawing::Size(159, 20);
 			this->txtInitX->TabIndex = 14;
@@ -176,7 +180,7 @@ namespace GREweld {
 			// 
 			// txtInitY
 			// 
-			this->txtInitY->Location = System::Drawing::Point(63, 252);
+			this->txtInitY->Location = System::Drawing::Point(63, 281);
 			this->txtInitY->Name = L"txtInitY";
 			this->txtInitY->Size = System::Drawing::Size(159, 20);
 			this->txtInitY->TabIndex = 15;
@@ -233,11 +237,31 @@ namespace GREweld {
 			this->lblfName->TabIndex = 8;
 			this->lblfName->Text = L"File name:";
 			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->Location = System::Drawing::Point(61, 265);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(140, 13);
+			this->label5->TabIndex = 19;
+			this->label5->Text = L"use comma as decimal ponit";
+			// 
+			// label6
+			// 
+			this->label6->AutoSize = true;
+			this->label6->Location = System::Drawing::Point(60, 210);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(140, 13);
+			this->label6->TabIndex = 20;
+			this->label6->Text = L"use comma as decimal ponit";
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(423, 377);
+			this->ClientSize = System::Drawing::Size(423, 446);
+			this->Controls->Add(this->label6);
+			this->Controls->Add(this->label5);
 			this->Controls->Add(this->rbtnSquare);
 			this->Controls->Add(this->rbtnOffset);
 			this->Controls->Add(this->label4);
